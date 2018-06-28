@@ -563,7 +563,7 @@ var UserService = /** @class */ (function () {
             // if not search term, return empty hero array.
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])([]);
         }
-        return this.http.get(this.usersUrl + "/search/?term=" + term).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("found users matching \"" + term + "\""); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('searchUsers', [])));
+        return this.http.get(this.usersUrl + "search/?term=" + term).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("found users matching \"" + term + "\""); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('searchUsers', [])));
     };
     // ----- HELPER METHODS ------- //
     UserService.prototype.handleError = function (operation, result) {

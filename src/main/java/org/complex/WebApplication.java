@@ -8,18 +8,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.stereotype.Component;
 
 @SpringBootApplication
-public class WebApplication {
+public class WebApplication extends SpringBootServletInitializer {
 
 	@Autowired
 	PersonRepository repository;
 	
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(WebApplication.class);
+    }
+	
 	public static void main(String[] args) {
 		SpringApplication.run(WebApplication.class, args);
 	}
-	
+		
 	@Component
 	public class CommandLineRunnerBean implements CommandLineRunner {	
 	    public void run(String... args) {
